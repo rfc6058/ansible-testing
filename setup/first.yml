@@ -12,6 +12,9 @@
     - name: "Install Prerequisites"
       apt: name=aptitude update_cache=yes state=latest force_apt_get=yes
     
+    - name: "Install UFW"
+      apt: name=ufw update_cache=yes state=latest force_apt_get=yes
+    
     - name: "Install Apache"
       apt: name=apache2 update_cache=yes state=latest
 
