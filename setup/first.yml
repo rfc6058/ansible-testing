@@ -2,7 +2,7 @@
 - hosts: kali
   become: true
   vars_files:
-    - vars/default.yml
+    - default.yml
 
   tasks:
 
