@@ -1,0 +1,8 @@
+---
+  - name: "first ansible playbook"
+    hosts: kali
+
+    tasks:
+
+    - name: "test reachibility"
+      ping:

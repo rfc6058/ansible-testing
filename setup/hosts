@@ -1,0 +1,5 @@
+[kali]
+10.0.1.111	ansible_connection=ssh	ansible_user=kali
+
+[macos]
+localhost	ansible_connection=local
