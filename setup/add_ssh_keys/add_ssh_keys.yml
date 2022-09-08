@@ -1,0 +1,13 @@
+---
+- hosts: localhost
+  become: true
+  app_user: admin
+  targets: all:!localhost
+  vars_files:
+    - default.yml
+
+  tasks:
+    - name: add the public key into Authorized_keys file to enable Key Auth
+      shell: "ssh-copy-id -i {{ remote_user }}@{{ remote_host }}"
+
+

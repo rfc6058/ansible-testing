@@ -1,0 +1,8 @@
+---
+app_user: admin
+remote_user:
+ - remote_user1
+ - remote_user2
+remote_hosts:
+ - host1
+ - host2
