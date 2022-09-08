@@ -1,6 +1,6 @@
 ---
 app_user: "kali"
-http_host: "test_site.com"
-http_conf: "test_site"
+http_host: "test_site"
+http_conf: "test_site.com"
 http_port: "80"
 disable_default: true
