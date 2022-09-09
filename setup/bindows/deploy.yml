@@ -1,0 +1,10 @@
+---
+- hosts: windows10
+  become: true
+  vars_files:
+    - default.yml
+
+  tasks:
+
+    - name: "test reachability"
+      ping:
