@@ -3,3 +3,6 @@
 
 [macos]
 localhost	ansible_connection=local
+
+[windows10]
+10.0.1.6 ansible_connection=winrm ansible_user=rfc6058
