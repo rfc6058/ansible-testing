@@ -4,5 +4,11 @@
 [macos]
 localhost	ansible_connection=local
 
-[windows10]
-10.0.1.6 ansible_connection=winrm ansible_user=rfc6058
+[windows]
+10.0.1.6    ansible_user=ansible
+
+[windows:vars]
+ansible_port=5985
+ansible_connection=winrm
+ansible_winrm_transport=basic
+ansible_winrm_server_cert_validation=ignore

@@ -1,10 +1,10 @@
 ---
-- hosts: windows10
-  become: true
-  vars_files:
-    - default.yml
+- name: "win ping test"
+  hosts: windows
+  become: false
+  gather_facts: false
 
   tasks:
 
     - name: "test reachability"
-      ping:
+      win_ping:
