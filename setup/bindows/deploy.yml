@@ -7,24 +7,6 @@
 
   tasks:
 
-<<<<<<< HEAD
-    - name: "Test Reachability"
-      win_ping:
-
-    - name: "Install Prerequisites - C++ 2015 Redistributable"
-      ansible.windows.win_package:
-        path: https://aka.ms/vs/17/release/vc_redist.x64.exe
-        arguments: /q /norestart
-        state: present
-        product_id: 
-
-    - name: "Install MySQL"
-      ansible.windows.win_package:
-        path: //URL to download here
-        arguments: /q /norestart
-        state: present
-        product_id: //google
-=======
     - name: "test reachability"
       win_ping:
 
@@ -43,4 +25,3 @@
         path: C:\temp\7zip.msi
 
     
->>>>>>> f36d260a55cafd2758aaead8d10da94fd2010aa6
