@@ -1,0 +1,29 @@
+---
+- hosts: pfsense
+  become: true
+  vars_files:
+    - default.yml
+  
+  tasks:
+    - name: "Test Connectivity"
+      ping:
+
+    - name: "Install packages"
+      package:
+        name:
+          - pfSense-pkg-sudo
+        state: present
+
+    - name: "Allow Scoring in"
+      pfsense_rule:
+        name: 'Allow scoring engine to communicate'
+        action: pass
+        interface: wan
+        ipprotocol: inet
+        protocol: tcp
+        source: "{{ scoring_ip }}"
+        destination: any
+        destination_port: any
+        state: present
+        after: top
+

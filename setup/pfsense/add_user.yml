@@ -1,0 +1,24 @@
+---
+- hosts: pfsense
+  become: true
+  vars_files:
+    - defaults.yml
+  
+  tasks:
+    - name: "Test Connectivity"
+      ping:
+
+    - name: "Install packages"
+      package:
+        name:
+          - pfSense-pkg-sudo
+        state: present
+
+    - name: "Add grey team user"
+      pfsense_user:
+        name: grey_team
+        password: $2a$12$n.HMIZ9.6B65bQeH/mZcouURTbNXaE6y4D24R53fxzHwLSy/ZQP0S
+        descr: "User for grey team"
+        scope: user
+        groups: [ 'Operators', 'Grey Team' ]
+        priv: [ 'page-all', 'user-shell-access' ]

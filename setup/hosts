@@ -1,11 +1,11 @@
 [kali]
-10.0.1.111	ansible_connection=ssh	ansible_user=kali
+kali01 ansible_ssh_host=10.0.1.111	ansible_connection=ssh	ansible_user=kali
 
 [macos]
 localhost	ansible_connection=local
 
 [windows]
-10.0.1.6    ansible_user=ansible
+windows10_1 ansible_winrm_host=10.0.1.6    ansible_user=ansible
 
 [windows:vars]
 ansible_port=5985
