@@ -1,3 +1,4 @@
+# Ryan Cheevers-Brown, 2022-09-09, rfc6058@rit.edu
 [kali]
 kali01 ansible_ssh_host=10.0.1.111	ansible_connection=ssh	ansible_user=kali
 

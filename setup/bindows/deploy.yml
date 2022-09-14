@@ -1,4 +1,5 @@
 ---
+# Ryan Cheevers-Brown, 2022-09-09, rfc6058@rit.edu
 - name: "win ping test"
   hosts: windows
   become: false
@@ -6,6 +7,7 @@
 
   tasks:
 
+<<<<<<< HEAD
     - name: "Test Reachability"
       win_ping:
 
@@ -22,3 +24,23 @@
         arguments: /q /norestart
         state: present
         product_id: //google
+=======
+    - name: "test reachability"
+      win_ping:
+
+    - name: Create temp directory for deployments
+      ansible.windows.win_file:
+        path: C:\temp
+        state: directory
+
+    - name: "Deploy 7-zip to Windows host"
+      win_get_url:
+        url: https://www.7-zip.org/a/7z2201-x64.msi
+        dest: C:\temp\7zip.msi
+
+    - name: execute msi
+      win_package:
+        path: C:\temp\7zip.msi
+
+    
+>>>>>>> f36d260a55cafd2758aaead8d10da94fd2010aa6
