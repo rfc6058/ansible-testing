@@ -1,6 +1,6 @@
 ---
 # Ryan Cheevers-Brown, 2022-09-09, rfc6058@rit.edu
-- hosts: kali
+- hosts: webservers
   become: true
   vars_files:
     - default.yml
@@ -9,17 +9,19 @@
     - name: "test reachability"
       ping:
 
-      #Install prerequisite package (aptitude)
-    - name: "Install Prerequisites"
-      apt: name=aptitude update_cache=yes state=latest force_apt_get=yes
-
-    #Install UFW as Kali does not come with a firewall from the factory
-    - name: "Install UFW"
-      apt: name=ufw update_cache=yes state=latest force_apt_get=yes
+    # Update Packages
+    - name: "Update Packages"
+      yum:
+        name: '*'
+        state: latest
 
     #Install the web server
     - name: "Install Apache"
-      apt: name=apache2 update_cache=yes state=latest
+      yum: 
+        name: "{{ packages }}"
+        state: present
+      vars:
+        - httpd
 
     # Create http file directory, set permissions
     - name: "Create document root"
@@ -54,10 +56,10 @@
 
     #Open port 80 for HTTP traffic to the host
     - name: "UFW - Allow HTTP on port {{ http_port }}"
-      ufw:
-        rule: allow
-        port: "{{ http_port }}"
-        proto: tcp
+      firewalld:
+        service: http
+        permanent: yes
+        state: enabled
 
   handlers:
     # post-install, apache needs to have the config reloaded to actually serve the new site
