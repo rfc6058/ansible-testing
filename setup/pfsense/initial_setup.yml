@@ -8,20 +8,10 @@
     - name: "test connectivity" 
       ping:
 
-    - name: "Set Hostname and Domain"
-      pfsense_setup:
-        hostname: pfsense
-        domain: team{{ number }}.com
-
     - name: "Set Dark Mode"
       pfsense_setup:
         webguicss: pfSense-dark
 
-    - name: "Set Timezone and Language"
-      pfsense_setup:
-        timezone: North America/New York
-        language: en_US
+    - name: "Set WAN"
 
-    - name: "Configure DNS"
-      pfsense_setup:
-        dns_addresses: "{{ dns_ip }}"
+

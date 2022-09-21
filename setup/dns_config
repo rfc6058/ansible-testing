@@ -1,0 +1,29 @@
+## This is a master bind config for CDT fall 2022, team alpha. 
+
+options {
+    // Working directory
+    directory "/etc/namedb";
+
+    // Do not allow access to cache
+    allow-query-cache { any; };
+
+    // This is the default
+    allow-query { any; };
+
+    // Provide forwarding
+    recursion no;
+
+    auth-nxdomain no;    # conform to RFC1035
+
+    forward only;
+    forwarders {
+        129.21.3.17;
+        129.21.4.18;
+    }
+};
+
+// We are the master server for example.com
+zone "sample-server.com" {
+    type master;
+    file "sample-server.com.db";
+};

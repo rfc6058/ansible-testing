@@ -1,0 +1,45 @@
+---
+# Ryan Cheevers-Brown, 2022-09-09, rfc6058@rit.edu
+- hosts: redteam
+  become: true
+
+  tasks:
+    - name: "test reachability"
+      ping:
+
+      #Install prerequisite package (aptitude)
+    - name: "Install Prerequisites"
+      apt: name=aptitude update_cache=yes state=latest force_apt_get=yes
+
+    #Install UFW as Kali does not come with a firewall from the factory
+    - name: "Install UFW"
+      apt: name=ufw update_cache=yes state=latest force_apt_get=yes
+
+    - name: "Install tcpdump"
+      apt: name=tcpdump update_cache=yes state=latest force_apt_get=yes
+
+    - name: "Install lsof"
+      apt: name=lsof update_cache=yes state=latest force_apt_get=yes
+
+    - name: "Install top"
+      apt: name=top update_cache=yes state=latest force_apt_get=yes
+
+    - name: "Install vim"
+      apt: name=vim update_cache=yes state=latest force_apt_get=yes
+
+    - name: "Install nano"
+      apt: name=nano update_cache=yes state=latest force_apt_get=yes
+    
+    - name: "Install netcat"
+      apt: name=netcat update_cache=yes state=latest force_apt_get=yes
+
+    - name: "Install gcc"
+      apt: name=gcc update_cache=yes state=latest force_apt_get=yes
+
+    - name: "Install make"
+      apt: name=make update_cache=yes state=latest force_apt_get=yes
+
+    - name: "Install curl"
+      apt: name=curl update_cache=yes state=latest force_apt_get=yes
+
+ 
