@@ -1,3 +1,3 @@
 [iisservers]
-iisserver-b1 ansible_host=Administrator@192.168.10.60 ansible_password=Steve123
-iisserver-b2 ansible_host=Administrator@192.168.20.60 ansible_password=Steve123
+iisserver-b1 ansible_host=Administrator@192.168.10.60 ansible_shell_type=cmd ansible_password=Steve123
+iisserver-b2 ansible_host=Administrator@192.168.20.60 ansible_shell_type=cmd ansible_password=Steve123
