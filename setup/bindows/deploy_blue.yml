@@ -1,0 +1,43 @@
+---
+# Ryan Cheevers-Brown, 2022-09-09, rfc6058@rit.edu
+- name: "win ping test"
+  hosts: windows
+  become: false
+  gather_facts: false
+
+  tasks:
+
+    - name: "test reachability"
+      win_ping:
+
+    - name: Create temp directory for deployments
+      ansible.windows.win_file:
+        path: C:\temp
+        state: directory
+
+    - name: "Deploy 7-zip to Windows host"
+      win_get_url:
+        url: https://www.7-zip.org/a/7z2201-x64.msi
+        dest: C:\Users\blueteam_admin\Downloads\7zip.msi
+    
+    - name: "Deploy sysinternals to Windows host"
+      win_get_url:
+        url: https://download.sysinternals.com/files/SysinternalsSuite.zip
+        dest: C:\Users\blueteam_admin\Downloads\Sysinternals.zip
+
+    - name: Extract Terminal Bundle
+      community.windows.win_unzip:
+        src: C:\Users\blueteam_admin\Downloads\Sysinternals.zip
+        dest: C:\Users\blueteam_admin\Downloads\Sysinternals
+        creates: C:\Users\blueteam_admin\Downloads\Sysinternals
+
+    - name: "Deploy 7-zip to Windows host"
+      win_get_url:
+        url: https://sourceforge.net/projects/processhacker/files/processhacker2/processhacker-2.39-setup.exe/download
+        dest: C:\Users\blueteam_admin\Downloads\processHacker-2.39-setup.exe
+        
+
+
+    
+
+    
